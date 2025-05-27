@@ -5,8 +5,10 @@
 
 ### Introducción
 
-### Objetivos
+zzz
 
+### Objetivos
+zzz
 
 ### Elaboración del proyecto
 Con el fin de comprender a mayor profundidad el concepto de grafos, caminos y sus implicaciones en las ciencias de la computación, se ha desarrollado el presente proyecto de la siguiente manera.
@@ -31,7 +33,7 @@ toman protagonismo como se explica:
 DONE!
 
 ### Ejecución del código
-Para poder ejecutar este proyecto en su pc se requiere la instalación de las siguientes dependencias (todas se pueden agregar mediante pip install en terminal)
+Para poder ejecutar este proyecto en su pc se requiere la instalación de Python 3.13 y las siguientes dependencias (todas se pueden agregar mediante pip install en terminal)
 * geopandas
 * networkx
 * shapely
