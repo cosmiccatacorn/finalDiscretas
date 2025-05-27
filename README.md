@@ -5,7 +5,7 @@
 
 ### Introducción
 
-zzz
+
 
 ### Objetivos
 zzz
@@ -42,6 +42,9 @@ Para poder ejecutar este proyecto en su pc se requiere la instalación de Python
 
 tkinter no requiere instalación, pues viene incluida en Python desde la versión 3.algo
 
+#### Paso 0: Cree o seleccione un entorno virtual para la ejecución
+Puede seguir este tutorial: https://docs.python.org/3/library/venv.html
+
 #### Paso 1: Clone este repositorio en su pc
 Desde su editor de código de preferencia, clone este repositorio.
 Si por otra parte no desea clonarlo todo, asegurese de incluir en el mismo directorio los archivos:
@@ -50,7 +53,10 @@ Si por otra parte no desea clonarlo todo, asegurese de incluir en el mismo direc
 * export.kml
 #### Paso 2: Verifique la instalación de dependencias
 Puede correr la siguiente linea en terminal para completar este paso
+
 ```pip install geopandas networkx shapely matplotlib contextily```
+Nota: Si aun genera conflicto, instale las dependencias una por una
+
 #### Paso 3: Ejecute el código
 Ejecute main.py para visualizar el archivo
 
