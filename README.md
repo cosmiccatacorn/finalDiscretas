@@ -4,11 +4,19 @@
 ### Facultad de Ingeniería. 26 de Mayo de 2025
 
 ### Introducción
-
+ El presente proyecto tiene como finalidad representar el campus de la Universidad de La Sabana mediante un grafo no dirigido. Cada edificio, punto de interés o espacio funcional es representado como un vértice del grafo, mientras que las conexiones entre ellos (caminos peatonales o rutas directas) son las aristas, ponderadas por la distancia real en metros. Esta estructura permite simular el mapa del campus y facilitar la búsqueda del camino más corto entre dos ubicaciones. Además de la representación matemática, el proyecto incluye una visualización gráfica del grafo y una interfaz interactiva que permite a los usuarios ingresar un origen y un destino para obtener la ruta óptima dentro de la universidad.
 
 
 ### Objetivos
-zzz
+Objetivo general: 
+* Diseñar e implementar un sistema de grafo que modele la Universidad de La Sabana, con funcionalidades para visualizar el mapa del campus y calcular el camino más corto entre dos ubicaciones.
+
+Objetivos específicos: 
+* Construir un grafo ponderado a partir de las distancias reales entre edificios y puntos de interés del campus.
+* Desarrollar una función que utilice el algoritmo de Dijkstra para encontrar la ruta más corta entre dos nodos.
+* Visualizar el grafo usando la biblioteca networkx de Python.
+* Integrar una interfaz gráfica con tkinter que permita la interacción del usuario de forma amigable y dinámica.
+* Promover el trabajo en equipo, la división de tareas y la aplicación de estructuras de datos en un contexto real.
 
 ### Elaboración del proyecto
 Con el fin de comprender a mayor profundidad el concepto de grafos, caminos y sus implicaciones en las ciencias de la computación, se ha desarrollado el presente proyecto de la siguiente manera.
