@@ -1,15 +1,14 @@
-#Importar dependencias
-import geopandas as gpd #
-import pandas as pd
+#Importar dependencias --- asegúrese de tenerlas instaladas!!!
+import geopandas as gpd # procesar los kml s
 import networkx as nx #Creación del grafo y uso del algoritmo de dijkstra
-from shapely.geometry import LineString, Point
-import matplotlib.pyplot as plt
-import contextily as ctx
-import tkinter as tk
-from tkinter import ttk
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from shapely.geometry import LineString, Point #rectas, puntos, etc
+import matplotlib.pyplot as plt #visualizar gráficas-  grafo sobre el mapa en este ejemplo contreto
+import contextily as ctx #uso del mapa de OpenStreetMap :)
+import tkinter as tk #GUI
+from tkinter import ttk #GUI on steroids
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg #Usar matplotlib en la GUI
 
-# === 1. Cargar nodos con nombre ===
+# Cargar los nodos y guardarlos en objeto de geopandas
 gdf_nodos = gpd.read_file("Nodos.kml", driver="KML").to_crs(epsg=3857)
 
 # Modificación para manejar diferentes tipos de geometría
@@ -29,10 +28,10 @@ for _, row in gdf_nodos.iterrows():
 
 coord_a_nombre = {v: k for k, v in nodo_pos.items()}
 
-# === 2. Cargar caminos peatonales (Overpass KML) ===
+# Guardar los caminos (aristas) en un archivo de geopandas
 gdf_caminos = gpd.read_file("export.kml", driver="KML").to_crs(epsg=3857)
 
-# === 3. Crear grafo usando segmentos de los caminos ===
+#Grafooo!!!
 G = nx.Graph()
 
 for _, row in gdf_caminos.iterrows():
@@ -45,23 +44,22 @@ for _, row in gdf_caminos.iterrows():
             dist = LineString([p1, p2]).length
             G.add_edge(p1, p2, weight=dist)
 
-
-# === 4. Asociar coordenadas de los nodos a los más cercanos en el grafo ===
+#Facilita encontrar nodos
 def encontrar_nodo_mas_cercano(coord, nodos_grafo):
     return min(nodos_grafo, key=lambda n: Point(n).distance(Point(coord)))
 
 
-# Crear diccionario de nodos del grafo que están cerca de un edificio
+# Asocia los nodos a aquellos que están en el radio cercano a su cordenada
 nodos_a_edificio = {}
-umbral_distancia = 25  # metros
+umbral_distancia = 25  
 for nombre, coord in nodo_pos.items():
     for nodo in G.nodes:
         if Point(nodo).distance(Point(coord)) <= umbral_distancia:
             nodos_a_edificio[nodo] = nombre
 
-# === 5. Tkinter GUI ===
+# Interfaz d eusuario GUI
 app = tk.Tk()
-app.title("Ruta más corta sobre senderos reales")
+app.title("Camino más corto entre dos puntos - Unisabana")
 app.geometry("1000x800")
 
 frame_controls = tk.Frame(app)
